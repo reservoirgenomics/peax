@@ -64,7 +64,7 @@ COPY ui ui
 WORKDIR /peax/ui
 
 RUN npm install
-RUN npm build
+RUN npm run build
 
 WORKDIR /peax
 
