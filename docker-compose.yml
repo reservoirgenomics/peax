@@ -1,0 +1,11 @@
+version: "2.0"
+services:
+  peax:
+    image: pkerpedjiev/peax
+    build: .
+    # command: bash
+    command: python start.py -d -c /data/resgen-integration/config-user-study-simulation-3-targets.json --base-data-dir /data/resgen-integration/ --host 0.0.0.0
+    ports:
+      - "5001:5000"
+    volumes:
+      - "./data:/data"

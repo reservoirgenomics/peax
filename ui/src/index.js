@@ -33,10 +33,13 @@ const storeRehydrated = state.configure();
 // Init pub-sub service
 const pubSub = createPubSub();
 
-const getServerStartTime = store =>
-  fetch(`${getServer()}/api/v1/started/`)
+const getServerStartTime = store => {
+  console.log('getServer:', getServer());
+
+  return fetch(`${getServer()}/api/v1/started/`)
     .then(response => response.text())
     .then(time => ({ store, serverStartTime: parseInt(time, 10) }));
+};
 
 const render = (Component, store, error) => {
   if (!store) {
